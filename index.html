@@ -875,18 +875,31 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Waitlist handlers
-function handleWaitlist() {
+async function handleWaitlist() {
   const input = document.getElementById('emailInput');
   const btn = document.getElementById('waitlistBtn');
-  if (input.value && input.value.includes('@')) {
-    btn.textContent = '✓ You\'re on the list';
-    btn.classList.add('success');
-    input.disabled = true;
-    btn.disabled = true;
-  } else {
+  if (!input.value || !input.value.includes('@')) {
     input.focus();
     input.style.borderColor = 'var(--red)';
     setTimeout(() => input.style.borderColor = '', 1200);
+    return;
+  }
+  btn.textContent = 'Joining...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: input.value })
+    });
+    if (res.ok) {
+      btn.textContent = '✓ You\'re on the list';
+      btn.classList.add('success');
+      input.disabled = true;
+    } else { throw new Error(); }
+  } catch(e) {
+    btn.textContent = 'Get early access';
+    btn.disabled = false;
   }
 }
 
