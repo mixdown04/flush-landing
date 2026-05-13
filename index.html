@@ -890,18 +890,28 @@ function handleWaitlist() {
   }
 }
 
-function handleWaitlist2() {
+async function handleWaitlist2() {
   const input = document.getElementById('emailInput2');
-  if (input.value && input.value.includes('@')) {
-    input.value = '';
-    input.placeholder = '✓ You\'re on the list';
-    input.disabled = true;
-  } else {
+  if (!input.value || !input.value.includes('@')) {
     input.focus();
     input.style.borderColor = 'var(--red)';
     setTimeout(() => input.style.borderColor = '', 1200);
+    return;
   }
-}
+  input.placeholder = 'Joining...';
+  input.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: input.value })
+    });
+    if (res.ok) {
+      input.placeholder = '✓ You\'re on the list';
+    } else { throw new Error(); }
+  } catch(e) {
+    input.disabled = false;
+    input.placeholder = 'y
 
 document.getElementById('emailInput').addEventListener('keydown', e => { if (e.key === 'Enter') handleWaitlist(); });
 document.getElementById('emailInput2').addEventListener('keydown', e => { if (e.key === 'Enter') handleWaitlist2(); });
