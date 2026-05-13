@@ -255,6 +255,100 @@ footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-i
 /* SCROLL REVEAL */
 .reveal{opacity:1;transform:none;transition:opacity 0.5s ease,transform 0.5s ease}
 .reveal.visible{opacity:1;transform:none}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+  html { font-size: 13px; }
+
+  /* Nav */
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-cta { padding: 6px 12px; font-size: 11px; }
+
+  /* Hero */
+  .hero { padding: 100px 24px 60px; }
+  .hero-headline { font-size: clamp(32px, 10vw, 48px); }
+  .hero-headline-2 { font-size: clamp(32px, 10vw, 48px); }
+  .hero-sub { font-size: 15px; }
+  .hero-icp { flex-wrap: wrap; gap: 6px; }
+
+  /* Waitlist */
+  .waitlist-form { flex-direction: column; gap: 8px; max-width: 100%; }
+  .waitlist-input { width: 100%; }
+  .waitlist-btn { width: 100%; height: 44px; }
+
+  /* Screenshot */
+  .screenshot-wrap { padding: 0 16px; margin-top: 40px; }
+  .mini-app { height: 360px; }
+  .mini-sidebar { width: 120px; }
+  .ms-section { display: none; }
+  .ms-nav { font-size: 9px; padding: 4px; }
+  .ms-grid2 { grid-template-columns: 1fr; }
+  .ms-grid3 { grid-template-columns: 1fr 1fr; }
+
+  /* Sections */
+  section { padding: 60px 24px; }
+
+  /* ICP grid */
+  .icp-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+
+  /* QB teardown */
+  .qb-section { padding: 60px 24px; }
+  .qb-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  /* Feature sections */
+  .feature-section { padding: 60px 24px; }
+  .feature-block { grid-template-columns: 1fr; gap: 32px; }
+  .feature-block.reverse { direction: ltr; }
+  .feature-block.reverse > * { direction: ltr; }
+
+  /* Mini screens */
+  .mini-screen { max-width: 100%; }
+
+  /* Invoice mini - stack vertically on mobile */
+  .mini-screen [style*="grid-template-columns:1fr 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  /* Tax intelligence */
+  .alerts-demo { margin-top: 24px; }
+  .alert-demo-item { flex-wrap: wrap; gap: 8px; }
+  .alert-savings { margin-top: 0; }
+
+  /* Testimonials */
+  .testimonials-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* Integrations */
+  .integrations-wrap { padding: 40px 24px; }
+  .int-row { gap: 8px; }
+  .int-chip { font-size: 11px; padding: 5px 10px; }
+
+  /* Pricing */
+  .pricing-card { padding: 28px 20px; margin-top: 32px; }
+  .pricing-price-big { font-size: 48px; }
+  .pricing-features-grid { grid-template-columns: 1fr; gap: 6px; }
+
+  /* CTA */
+  .cta-section { padding: 60px 24px; }
+  .cta-headline { font-size: clamp(26px, 8vw, 40px); }
+
+  /* Footer */
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .hero-headline { font-size: 36px; }
+  .hero-headline-2 { font-size: 36px; }
+  .ms-grid3 { grid-template-columns: 1fr; }
+  .mini-sidebar { width: 100px; }
+  .ms-nav span:not(.ms-nav-dot) { display: none; }
+  .qb-col-label .pill { display: none; }
+}
 </style>
 </head>
 <body>
