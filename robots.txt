@@ -7,4 +7,5 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-Sitemap: https://www.flush.cash/sitemap.xml
+User-agent: LinkedInBot
+Allow: /
