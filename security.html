@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security — Flush</title>
+<meta name="description" content="How Flush protects your data. Plaid tokens stay server-side. Row-level security on every table. TLS, encryption at rest, and minimum-trust architecture.">
+<meta property="og:title" content="Security — Flush">
+<meta property="og:description" content="How Flush protects your data and bank connections.">
+<meta property="og:url" content="https://www.flush.cash/security">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="/legal.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <svg width="26" height="18" viewBox="0 0 56 32" fill="none">
+      <path d="M2 22 L8 22 L11 10 L15 26 L19 14 L22 20 L26 6 L30 26 L34 16 L37 22 L54 22" stroke="#0f0f0e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-wordmark">flush</span>
+  </a>
+  <div class="nav-links">
+    <a href="/#features" class="nav-link">Features</a>
+    <a href="/#quickbooks" class="nav-link">vs QuickBooks</a>
+    <a href="/#pricing" class="nav-link">Pricing</a>
+  </div>
+  <a href="/#waitlist" class="nav-cta">Join waitlist →</a>
+</nav>
+
+<main class="legal-shell">
+  <div class="legal-eyebrow">
+    <div class="legal-eyebrow-dot"></div>
+    Security
+  </div>
+  <h1 class="legal-title">Security overview</h1>
+  <p class="legal-updated">Last updated: May 19, 2026</p>
+
+  <p class="legal-intro">
+    Flush handles your bank connections, transactions, and financial decisions. Security is a
+    first-order design principle, not a feature we bolt on. This page explains, honestly,
+    what we do — and what we don't.
+  </p>
+
+  <h2>1. Authentication</h2>
+  <p>
+    Flush does not store user passwords. We support two ways to sign in:
+  </p>
+  <ul>
+    <li><strong>Email magic link.</strong> A one-time link or 6-digit code sent to your email. Codes expire after a short window.</li>
+    <li><strong>Google OAuth.</strong> Authentication delegated to Google. We receive only your Google email, never your password.</li>
+  </ul>
+  <p>
+    Sessions are managed by Supabase Auth using short-lived JWTs and refresh tokens stored in
+    your browser's local storage. Tokens are bound to your user identity and validated on
+    every API call.
+  </p>
+
+  <h2>2. Data isolation — Row-Level Security</h2>
+  <p>
+    Every table in our database has <strong>Postgres Row-Level Security (RLS)</strong> enabled.
+    Every row is tagged with the owning user's ID, and every database policy requires that
+    <code>auth.uid()</code> match the row's <code>user_id</code> for the row to be visible or
+    modifiable.
+  </p>
+  <p>
+    This means data isolation is enforced at the <em>database layer</em>, not just in
+    application code. Even if a bug in our API tried to query another user's records, the
+    database would return zero rows. There is no "all users" view that the application can
+    accidentally select from.
+  </p>
+
+  <h2>3. Bank connections (Plaid)</h2>
+  <div class="legal-callout">
+    <div class="legal-callout-label">The core guarantee</div>
+    <p>
+      <strong>Your bank password never touches Flush.</strong> The credentials you enter to
+      authorize a connection are entered into Plaid's interface, hosted by Plaid, and
+      transmitted directly to your financial institution.
+    </p>
+    <p>
+      <strong>The long-lived access token never reaches your browser.</strong> It exists only
+      inside our server-side functions and a database table with no client-readable policies.
+    </p>
+  </div>
+
+  <p>The flow:</p>
+  <ol>
+    <li>You click "Connect a bank." Our server creates a short-lived Plaid <em>link token</em> tied to your user ID.</li>
+    <li>Your browser opens Plaid Link with that token. You authenticate with your institution inside Plaid's interface. We never see those credentials.</li>
+    <li>Plaid Link returns a short-lived <em>public token</em> to your browser, which our server immediately exchanges for a long-lived <em>access token</em>.</li>
+    <li>The access token is written to a database table (<code>plaid_items</code>) whose RLS policies do not permit any client (signed-in or otherwise) to read or modify it. Only our server-side functions, using a service-role credential, can use it.</li>
+    <li>Server-side functions use the access token to fetch your accounts and transactions, which are written to RLS-scoped tables that <em>you</em> can read.</li>
+  </ol>
+
+  <p>
+    You can disconnect a linked institution at any time from the Connections page. We
+    immediately stop fetching new data and remove the access token on our side; you can also
+    revoke Flush's access directly from <a href="https://my.plaid.com" target="_blank" rel="noopener">my.plaid.com</a>.
+  </p>
+
+  <h2>4. Payments (Stripe)</h2>
+  <p>
+    Subscription billing and invoice payments are processed by Stripe. We use Stripe Elements
+    (or Stripe Checkout) for all card and bank-account entry; sensitive payment information
+    is transmitted directly from your browser to Stripe over TLS and never reaches our
+    servers. We store only a Stripe customer identifier and subscription status.
+  </p>
+  <p>
+    Stripe is PCI-DSS Level 1 certified. Their security practices are documented at
+    <a href="https://stripe.com/docs/security" target="_blank" rel="noopener">stripe.com/docs/security</a>.
+  </p>
+
+  <h2>5. Encryption</h2>
+  <ul>
+    <li><strong>In transit.</strong> All traffic between your browser, our application, and our infrastructure providers uses TLS 1.2 or higher.</li>
+    <li><strong>At rest.</strong> Database storage and backups are encrypted at rest by our infrastructure providers using AES-256.</li>
+    <li><strong>Secrets.</strong> API keys (Plaid, Stripe, Anthropic, Resend, etc.) are stored as encrypted environment variables on our Edge Function runtime, not in source code or client bundles.</li>
+  </ul>
+
+  <h2>6. Infrastructure</h2>
+  <table>
+    <thead>
+      <tr><th>Provider</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Supabase</td><td>Postgres database, authentication, Edge Functions, file storage</td></tr>
+      <tr><td>Vercel</td><td>Application hosting and content delivery</td></tr>
+      <tr><td>Plaid</td><td>Bank account connectivity</td></tr>
+      <tr><td>Stripe</td><td>Payment processing</td></tr>
+      <tr><td>Resend</td><td>Transactional email delivery</td></tr>
+      <tr><td>Anthropic</td><td>AI features (Claude API)</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Our infrastructure providers are widely used by financial software companies and maintain
+    independent security certifications (SOC 2, PCI-DSS, and equivalent) appropriate to their
+    role. We do not host any production infrastructure on our own machines.
+  </p>
+
+  <h2>7. Access controls</h2>
+  <ul>
+    <li>Production access is limited to authorized personnel only and requires multi-factor authentication.</li>
+    <li>Production database queries go through audited tooling; ad-hoc access is restricted.</li>
+    <li>Our application code is reviewed before deployment.</li>
+    <li>API keys and secrets are rotated when staff or scope changes warrant it, and at minimum annually.</li>
+  </ul>
+
+  <h2>8. Application security</h2>
+  <ul>
+    <li>Input is validated server-side; we do not trust client-supplied user IDs.</li>
+    <li>Authentication tokens (JWTs) are verified on every privileged operation; the user ID used for authorization comes from the verified token, never from the request body.</li>
+    <li>Cross-Origin Resource Sharing (CORS) is configured per endpoint.</li>
+    <li>Dependencies are kept current; we monitor for known vulnerabilities.</li>
+    <li>Plaid and Stripe webhooks are verified using signed payload signatures before being processed.</li>
+  </ul>
+
+  <h2>9. Logging and monitoring</h2>
+  <p>
+    We log application errors, authentication events, and webhook activity. Logs are retained
+    for an appropriate period to support debugging and incident response. We do not log bank
+    account credentials, payment card numbers, or full access tokens.
+  </p>
+
+  <h2>10. Backups and disaster recovery</h2>
+  <p>
+    Our database is backed up continuously by our infrastructure provider with point-in-time
+    recovery. Backups are encrypted and stored in geographically separate regions. We
+    regularly verify that recovery from backup works.
+  </p>
+
+  <h2>11. Incident response</h2>
+  <p>
+    If we discover a security incident that affects user data, we will:
+  </p>
+  <ul>
+    <li>Investigate scope and impact</li>
+    <li>Take steps to contain and remediate</li>
+    <li>Notify affected users without undue delay and, where required, within 72 hours of confirmation</li>
+    <li>Notify regulators where required by applicable law</li>
+    <li>Publish a post-incident summary when appropriate</li>
+  </ul>
+
+  <h2>12. Responsible disclosure</h2>
+  <p>
+    If you find a security vulnerability in Flush, please report it to
+    <a href="mailto:jason@halo.ceo">jason@halo.ceo</a>. We commit to:
+  </p>
+  <ul>
+    <li>Acknowledging your report within 3 business days</li>
+    <li>Investigating and providing a status update within 14 days</li>
+    <li>Not pursuing legal action against good-faith researchers who follow this policy</li>
+    <li>Crediting reporters (if desired) in our security advisories</li>
+  </ul>
+  <p>
+    Please give us a reasonable amount of time to remediate before public disclosure. Do not
+    access, modify, or delete data belonging to other users in the course of testing.
+  </p>
+
+  <h2>13. Compliance posture</h2>
+  <p>
+    Flush is an early-stage product. We rely on the SOC 2-compliant infrastructure of our
+    providers (Supabase, Vercel, Stripe, Plaid) and follow security best practices in the
+    application layer above them. We are not yet independently SOC 2 certified. As Flush
+    grows, we will pursue independent attestation appropriate to the customers we serve.
+  </p>
+  <p>
+    Privacy-related compliance (GDPR, CCPA) is described in our
+    <a href="/privacy">Privacy Policy</a>.
+  </p>
+
+  <h2>14. Contact</h2>
+  <div class="contact-card">
+    <div class="label">Security inquiries &amp; vulnerability reports</div>
+    <div class="email"><a href="mailto:jason@halo.ceo">jason@halo.ceo</a></div>
+  </div>
+</main>
+
+<footer>
+  <a class="footer-logo" href="/">
+    <svg width="22" height="15" viewBox="0 0 56 32" fill="none">
+      <path d="M2 22 L8 22 L11 10 L15 26 L19 14 L22 20 L26 6 L30 26 L34 16 L37 22 L54 22" stroke="#0f0f0e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="footer-wordmark">flush</span>
+  </a>
+  <div class="footer-links">
+    <a href="/privacy" class="footer-link">Privacy</a>
+    <a href="/terms" class="footer-link">Terms</a>
+    <a href="/security" class="footer-link">Security</a>
+  </div>
+  <span class="footer-copy">© 2026 Flush · flush.cash</span>
+</footer>
+
+</body>
+</html>

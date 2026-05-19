@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Flush</title>
+<meta name="description" content="How Flush collects, uses, and protects your data. Plaid bank connections, Stripe payments, and your financial data — explained.">
+<meta property="og:title" content="Privacy Policy — Flush">
+<meta property="og:description" content="How Flush collects, uses, and protects your data.">
+<meta property="og:url" content="https://www.flush.cash/privacy">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="/legal.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <svg width="26" height="18" viewBox="0 0 56 32" fill="none">
+      <path d="M2 22 L8 22 L11 10 L15 26 L19 14 L22 20 L26 6 L30 26 L34 16 L37 22 L54 22" stroke="#0f0f0e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav-wordmark">flush</span>
+  </a>
+  <div class="nav-links">
+    <a href="/#features" class="nav-link">Features</a>
+    <a href="/#quickbooks" class="nav-link">vs QuickBooks</a>
+    <a href="/#pricing" class="nav-link">Pricing</a>
+  </div>
+  <a href="/#waitlist" class="nav-cta">Join waitlist →</a>
+</nav>
+
+<main class="legal-shell">
+  <div class="legal-eyebrow">
+    <div class="legal-eyebrow-dot"></div>
+    Privacy
+  </div>
+  <h1 class="legal-title">Privacy Policy</h1>
+  <p class="legal-updated">Last updated: May 19, 2026</p>
+
+  <p class="legal-intro">
+    Flush is a cash flow intelligence platform for founders, fractional executives, and
+    consultants. This policy explains what information we collect, why we collect it, who we
+    share it with, and the choices you have. Plain language, no dark patterns.
+  </p>
+
+  <h2>1. Who we are</h2>
+  <p>
+    "Flush", "we", "us", and "our" refer to the operator of flush.cash. For
+    questions about this policy or to exercise your privacy rights, contact
+    <a href="mailto:jason@halo.ceo">jason@halo.ceo</a>.
+  </p>
+
+  <h2>2. Information we collect</h2>
+
+  <h3>Account information you provide</h3>
+  <ul>
+    <li>Email address (for sign-in via magic link or Google OAuth)</li>
+    <li>Name and company name, when you provide them</li>
+    <li>Profile preferences (default currency, tax rate, etc.)</li>
+  </ul>
+
+  <h3>Financial data from connected accounts</h3>
+  <p>
+    When you connect a bank, credit card, or investment account through our Plaid integration,
+    we receive the following from Plaid:
+  </p>
+  <ul>
+    <li>Account names, masked account numbers, and account types</li>
+    <li>Current and available balances</li>
+    <li>Transaction history (date, description, merchant, amount, category)</li>
+    <li>Account holder name and basic identity information returned by your institution</li>
+  </ul>
+  <p>
+    <strong>We never see your bank login credentials.</strong> You enter those into Plaid's
+    interface; Plaid handles authentication with your institution and returns the data above to
+    us under your authorization.
+  </p>
+
+  <h3>Data you enter directly</h3>
+  <ul>
+    <li>Invoices, clients, line items, and notes</li>
+    <li>Sales pipeline deals, probabilities, and expected close dates</li>
+    <li>Equity grants (options, RSUs) and investments (SAFEs, LP interests)</li>
+    <li>Tax estimates and quarterly payment records</li>
+    <li>Any files you upload (e.g., imported cap-table CSVs)</li>
+  </ul>
+
+  <h3>Payment information</h3>
+  <p>
+    Subscription payments are processed by Stripe. We do not see or store your card number,
+    CVC, or expiration date — those go directly to Stripe. We retain a Stripe customer
+    identifier and subscription status so we know whether your account is active.
+  </p>
+
+  <h3>Technical and usage information</h3>
+  <ul>
+    <li>IP address, browser type, operating system, and device information</li>
+    <li>Pages viewed, features used, and timestamps</li>
+    <li>Error reports and performance metrics</li>
+    <li>Authentication tokens stored in your browser (used to keep you signed in)</li>
+  </ul>
+
+  <h2>3. How we use your information</h2>
+  <ul>
+    <li>Provide the service — cash flow forecasting, invoicing, reports, alerts</li>
+    <li>Generate tax reserve recommendations and pipeline-weighted forecasts</li>
+    <li>Process subscription payments and send receipts</li>
+    <li>Send transactional emails (sign-in links, invoice notifications, alerts you opt into)</li>
+    <li>Diagnose bugs and improve product reliability</li>
+    <li>Detect fraud, abuse, or violations of our Terms of Service</li>
+    <li>Comply with legal obligations</li>
+  </ul>
+  <p>
+    <strong>We do not sell your personal information.</strong> We do not use your financial
+    data to train AI models for third parties.
+  </p>
+
+  <h2>4. AI features</h2>
+  <p>
+    Some features (categorization suggestions, summary text, draft alerts) use the Anthropic
+    Claude API. When we use these features:
+  </p>
+  <ul>
+    <li>We send only the minimum data necessary for the specific feature</li>
+    <li>We do not send bank credentials or full transaction histories without your action</li>
+    <li>Anthropic does not use our API traffic to train their models per their API terms</li>
+  </ul>
+
+  <h2>5. Who we share data with</h2>
+  <p>We share data only with the service providers required to operate Flush:</p>
+
+  <table>
+    <thead>
+      <tr><th>Provider</th><th>Purpose</th><th>What they receive</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Plaid</td><td>Bank connectivity</td><td>Your authorization, our request for account/transaction data</td></tr>
+      <tr><td>Stripe</td><td>Subscription billing and invoice payments</td><td>Email, customer ID, payment metadata</td></tr>
+      <tr><td>Supabase</td><td>Database, authentication, file storage</td><td>All data stored in Flush (as our processor)</td></tr>
+      <tr><td>Vercel</td><td>Hosting and content delivery</td><td>Request metadata and logs</td></tr>
+      <tr><td>Resend</td><td>Transactional email delivery</td><td>Your email address and message contents</td></tr>
+      <tr><td>Anthropic</td><td>AI-powered features</td><td>Minimum prompts/data necessary for each feature</td></tr>
+      <tr><td>Google</td><td>Optional sign-in (if you choose Google OAuth)</td><td>Your Google profile email; nothing else</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    We may also disclose information when required by law, valid legal process, or to protect
+    the rights, safety, or property of Flush, our users, or the public.
+  </p>
+
+  <h2>6. Security</h2>
+  <p>
+    Our security approach is described in detail at
+    <a href="/security">flush.cash/security</a>. Highlights:
+  </p>
+  <ul>
+    <li>All traffic uses TLS 1.2 or higher</li>
+    <li>Data is encrypted at rest in our database</li>
+    <li>Row-level security (RLS) isolates every user's data at the database layer</li>
+    <li>Plaid access tokens are stored server-side only and are never sent to your browser</li>
+    <li>Stripe handles card data; we never see or store it</li>
+  </ul>
+
+  <h2>7. Your rights and choices</h2>
+  <p>You can:</p>
+  <ul>
+    <li><strong>Access</strong> the data we hold about you</li>
+    <li><strong>Export</strong> your invoices, transactions, equity records, and other content</li>
+    <li><strong>Correct</strong> inaccurate information by editing it in-app or emailing us</li>
+    <li><strong>Delete</strong> your account and associated data</li>
+    <li><strong>Disconnect</strong> any linked bank account at any time</li>
+    <li><strong>Opt out</strong> of non-essential email by following the unsubscribe link</li>
+  </ul>
+  <p>
+    To exercise any of these rights, email <a href="mailto:jason@halo.ceo">jason@halo.ceo</a>.
+    We will respond within 30 days.
+  </p>
+
+  <h3>If you're in California (CCPA / CPRA)</h3>
+  <p>
+    California residents have additional rights including the right to know what categories of
+    personal information we collect, the right to delete, and the right to opt out of any
+    "sale" of personal information. We do not sell personal information.
+  </p>
+
+  <h3>If you're in the EEA / UK (GDPR / UK GDPR)</h3>
+  <p>
+    You have the right to access, rectify, port, and erase your personal data, to restrict or
+    object to processing, and to lodge a complaint with your local supervisory authority. Our
+    lawful bases for processing are contract performance (operating the service you signed up
+    for), legitimate interests (security, fraud prevention, product improvement), and consent
+    (for optional features and marketing email).
+  </p>
+
+  <h2>8. Cookies and tracking</h2>
+  <p>
+    We use a small number of essential cookies and similar technologies to keep you signed in
+    and to remember your preferences. We do not use third-party advertising cookies or
+    cross-site trackers on the application. If we use any analytics on the marketing site
+    (flush.cash), it is configured to be privacy-respecting (no PII, IP truncation).
+  </p>
+
+  <h2>9. Data retention</h2>
+  <ul>
+    <li>Account data: retained while your account is active</li>
+    <li>After account deletion: removed from active systems within 30 days; encrypted backups expire within 90 days</li>
+    <li>Transaction history: retained for as long as the linked account is connected, plus a reasonable period to support audit and accounting needs</li>
+    <li>Billing records: retained for the period required by tax and accounting law (typically 7 years)</li>
+  </ul>
+
+  <h2>10. International data transfers</h2>
+  <p>
+    Flush is operated from the United States. If you access Flush from outside the US, your
+    information will be processed in the US. Our subprocessors (listed in Section 5) may
+    process data in the US and other jurisdictions where they operate. Where required, we rely
+    on Standard Contractual Clauses or equivalent transfer mechanisms.
+  </p>
+
+  <h2>11. Children</h2>
+  <p>
+    Flush is not directed to anyone under 18. We do not knowingly collect information from
+    children. If you believe a child has provided us with personal information, please contact
+    us and we will delete it.
+  </p>
+
+  <h2>12. Changes to this policy</h2>
+  <p>
+    We may update this policy as Flush evolves. If we make material changes, we will notify
+    you by email and update the "Last updated" date at the top of this page. Continued use of
+    Flush after notice constitutes acceptance of the revised policy.
+  </p>
+
+  <h2>13. Contact</h2>
+  <div class="contact-card">
+    <div class="label">Privacy questions</div>
+    <div class="email"><a href="mailto:jason@halo.ceo">jason@halo.ceo</a></div>
+  </div>
+</main>
+
+<footer>
+  <a class="footer-logo" href="/">
+    <svg width="22" height="15" viewBox="0 0 56 32" fill="none">
+      <path d="M2 22 L8 22 L11 10 L15 26 L19 14 L22 20 L26 6 L30 26 L34 16 L37 22 L54 22" stroke="#0f0f0e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="footer-wordmark">flush</span>
+  </a>
+  <div class="footer-links">
+    <a href="/privacy" class="footer-link">Privacy</a>
+    <a href="/terms" class="footer-link">Terms</a>
+    <a href="/security" class="footer-link">Security</a>
+  </div>
+  <span class="footer-copy">© 2026 Flush · flush.cash</span>
+</footer>
+
+</body>
+</html>
