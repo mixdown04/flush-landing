@@ -988,7 +988,7 @@ footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-i
 <div class="cta-section">
   <div class="cta-inner">
     <h2 class="cta-headline reveal">Your income is unpredictable.<br>Your finances don't have to be.</h2>
-    <p class="cta-sub reveal">Join 200+ founders, fractional executives, and consultants who are tired of tools built for accountants. Flush is built for you.</p>
+    <p class="cta-sub reveal">Flush is the financial command center for consultants, fractional executives, and founders who are tired of tools built for accountants. Start free today.</p>
     <a href="https://app.flush.cash" class="waitlist-btn reveal" style="display:inline-block;height:auto;padding:13px 32px;text-decoration:none;font-size:14px;border-radius:8px;margin-bottom:16px;">Start free today →</a>
     <p class="waitlist-note reveal">No credit card required · $29/month after your free period</p>
   </div>
@@ -1019,62 +1019,6 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Waitlist handlers
-async function handleWaitlist() {
-  const input = document.getElementById('emailInput');
-  const btn = document.getElementById('waitlistBtn');
-  if (!input.value || !input.value.includes('@')) {
-    input.focus();
-    input.style.borderColor = 'var(--red)';
-    setTimeout(() => input.style.borderColor = '', 1200);
-    return;
-  }
-  btn.textContent = 'Joining...';
-  btn.disabled = true;
-  try {
-    const res = await fetch('/api/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: input.value })
-    });
-    if (res.ok) {
-      btn.textContent = '✓ You\'re on the list';
-      btn.classList.add('success');
-      input.disabled = true;
-    } else { throw new Error(); }
-  } catch(e) {
-    btn.textContent = 'Get early access';
-    btn.disabled = false;
-  }
-}
-
-async function handleWaitlist2() {
-  const input = document.getElementById('emailInput2');
-  if (!input.value || !input.value.includes('@')) {
-    input.focus();
-    input.style.borderColor = 'var(--red)';
-    setTimeout(() => input.style.borderColor = '', 1200);
-    return;
-  }
-  input.placeholder = 'Joining...';
-  input.disabled = true;
-  try {
-    const res = await fetch('/api/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: input.value })
-    });
-    if (res.ok) {
-      input.placeholder = '✓ You\'re on the list';
-    } else { throw new Error(); }
-  } catch(e) {
-    input.disabled = false;
-    input.placeholder = 'you@yourstartup.com';
-  }
-}
-
-document.getElementById('emailInput')?.addEventListener('keydown', e => { if (e.key === 'Enter') handleWaitlist(); });
-document.getElementById('emailInput2')?.addEventListener('keydown', e => { if (e.key === 'Enter') handleWaitlist2(); });
 </script>
 </body>
 </html>
