@@ -376,14 +376,14 @@ footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-i
     <a href="#quickbooks" class="nav-link">vs QuickBooks</a>
     <a href="#pricing" class="nav-link">Pricing</a>
   </div>
-  <a href="#waitlist" class="nav-cta">Join waitlist →</a>
+  <a href="https://app.flush.cash" class="nav-cta">Get started →</a>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">
     <div class="eyebrow-dot"></div>
-    Private beta · 200+ founders on waitlist
+    Now open · Start free today
   </div>
   <h1 class="hero-headline">Built for founders.</h1>
   <h1 class="hero-headline-2">Not accountants.</h1>
@@ -395,11 +395,8 @@ footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-i
     <span class="icp-tag">Angel investors</span>
   </div>
   <div class="waitlist-wrap" id="waitlist">
-    <div class="waitlist-form">
-      <input class="waitlist-input" type="email" placeholder="you@yourstartup.com" id="emailInput">
-      <button class="waitlist-btn" id="waitlistBtn" onclick="handleWaitlist()">Get early access</button>
-    </div>
-    <p class="waitlist-note">No credit card. No spam. Early access pricing locked for life.</p>
+    <a href="https://app.flush.cash" class="waitlist-btn" style="display:inline-block;height:auto;padding:13px 32px;text-decoration:none;font-size:14px;border-radius:8px;">Start free today →</a>
+    <p class="waitlist-note">No credit card required · $29/month after your free period</p>
     <div class="social-proof">
       <div class="sp-avatars">
         <div class="sp-avatar">JH</div>
@@ -408,7 +405,7 @@ footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-i
         <div class="sp-avatar">AL</div>
         <div class="sp-avatar">+</div>
       </div>
-      <span>200+ founders already on the waitlist</span>
+      <span>Now open for business</span>
     </div>
   </div>
 </div>
@@ -981,8 +978,8 @@ footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-i
         <div class="pricing-feature">Stress test scenarios</div>
         <div class="pricing-feature">Stripe payment collection</div>
       </div>
-      <a href="#waitlist" class="pricing-cta">Join waitlist — lock in $29/mo for life</a>
-      <div class="pricing-note">FREE during beta · no credit card required to join waitlist</div>
+      <a href="https://app.flush.cash" class="pricing-cta">Get started free →</a>
+      <div class="pricing-note">No credit card required · cancel any time</div>
     </div>
   </div>
 </div>
@@ -992,11 +989,8 @@ footer{border-top:1px solid var(--border);padding:28px 40px;display:flex;align-i
   <div class="cta-inner">
     <h2 class="cta-headline reveal">Your income is unpredictable.<br>Your finances don't have to be.</h2>
     <p class="cta-sub reveal">Join 200+ founders, fractional executives, and consultants who are tired of tools built for accountants. Flush is built for you.</p>
-    <div class="waitlist-form reveal" style="max-width:420px;margin:0 auto 12px;">
-      <input class="waitlist-input" type="email" placeholder="you@yourstartup.com" id="emailInput2">
-      <button class="waitlist-btn" onclick="handleWaitlist2()">Get early access</button>
-    </div>
-    <p class="waitlist-note reveal">Free during beta. $29/month when we launch. Your rate locked for life.</p>
+    <a href="https://app.flush.cash" class="waitlist-btn reveal" style="display:inline-block;height:auto;padding:13px 32px;text-decoration:none;font-size:14px;border-radius:8px;">Start free today →</a>
+    <p class="waitlist-note reveal">No credit card required · $29/month after your free period</p>
   </div>
 </div>
 
@@ -1079,8 +1073,8 @@ async function handleWaitlist2() {
   }
 }
 
-document.getElementById('emailInput').addEventListener('keydown', e => { if (e.key === 'Enter') handleWaitlist(); });
-document.getElementById('emailInput2').addEventListener('keydown', e => { if (e.key === 'Enter') handleWaitlist2(); });
+document.getElementById('emailInput')?.addEventListener('keydown', e => { if (e.key === 'Enter') handleWaitlist(); });
+document.getElementById('emailInput2')?.addEventListener('keydown', e => { if (e.key === 'Enter') handleWaitlist2(); });
 </script>
 </body>
 </html>
