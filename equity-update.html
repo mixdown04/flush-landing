@@ -21,11 +21,11 @@
 html{font-size:14px;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text-primary);font-family:var(--mono);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:40px 20px}
 
-.brand{display:flex;align-items:center;gap:8px;margin-bottom:48px;align-self:flex-start;max-width:600px;width:100%}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:48px;align-self:flex-start;max-width:620px;width:100%}
 .brand-name{font-size:17px;font-weight:500;letter-spacing:-0.03em;color:var(--text-primary)}
 .brand-dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
 
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;width:100%;max-width:600px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;width:100%;max-width:620px}
 .card+.card{margin-top:16px}
 
 h1{font-size:20px;font-weight:400;letter-spacing:-0.03em;line-height:1.3;margin-bottom:12px}
@@ -39,30 +39,41 @@ h1{font-size:20px;font-weight:400;letter-spacing:-0.03em;line-height:1.3;margin-
 .doc-link:hover{border-color:var(--text-primary)}
 .doc-icon{font-size:16px;flex-shrink:0}
 
-.divider{height:1px;background:var(--border);margin:28px 0}
+.current-table{width:100%;border-collapse:collapse;margin-top:12px}
+.current-table td{padding:6px 0;font-size:12px;vertical-align:top}
+.current-table td:first-child{color:var(--text-tertiary);width:44%;padding-right:12px;font-size:11px;letter-spacing:0.02em;padding-top:7px}
+.current-table td:last-child{font-weight:500}
+.current-table tr+tr td{border-top:1px solid var(--border-subtle)}
+
 .section-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:16px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 20px;border-radius:8px;font-family:var(--mono);font-size:13px;font-weight:500;cursor:pointer;border:none;letter-spacing:-0.01em;transition:background 0.15s,opacity 0.15s}
 .btn:disabled{opacity:0.5;cursor:not-allowed}
 .btn-primary{background:var(--text-primary);color:#fff}
 .btn-primary:hover:not(:disabled){background:#2a2a28}
-.btn-outline{background:var(--surface);color:var(--text-primary);border:1px solid var(--border)}
-.btn-outline:hover:not(:disabled){border-color:var(--text-primary)}
 .btn-green{background:var(--green);color:#fff}
 .btn-green:hover:not(:disabled){background:#15803d}
 .btn-full{width:100%}
 
-.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+/* Confirmation form inputs */
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
 .field-label{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-tertiary)}
-textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-family:var(--mono);font-size:12px;background:var(--bg);color:var(--text-primary);outline:none;resize:vertical;line-height:1.6}
-textarea:focus{border-color:var(--text-primary)}
+.cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.cf-grid{grid-template-columns:1fr}}
+.cf-input{width:100%;height:36px;padding:0 10px;border:1px solid var(--border);border-radius:6px;font-family:var(--mono);font-size:12px;background:var(--bg);color:var(--text-primary);outline:none}
+.cf-input:focus{border-color:var(--text-primary)}
+textarea.cf-input{height:auto;padding:8px 10px;resize:vertical;min-height:52px}
 
 .upload-area{border:2px dashed var(--border);border-radius:10px;padding:28px 20px;text-align:center;cursor:pointer;transition:border-color 0.15s;margin-bottom:14px}
 .upload-area:hover{border-color:var(--text-primary)}
 .upload-area.has-file{border-style:solid;border-color:var(--green);background:var(--green-muted)}
 .upload-hint{font-size:13px;color:var(--text-secondary);margin-bottom:4px}
-.upload-sub{font-size:11px;color:var(--text-tertiary)}
+.upload-sub{font-size:11px;color:var(--text-tertiary);line-height:1.6}
 .upload-file-name{font-size:13px;font-weight:500;color:var(--green)}
+
+.field-notes{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.notes-input{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:8px;font-family:var(--mono);font-size:12px;background:var(--bg);color:var(--text-primary);outline:none;resize:vertical;line-height:1.6}
+.notes-input:focus{border-color:var(--text-primary)}
 
 .alert{padding:12px 16px;border-radius:8px;font-size:13px;line-height:1.6;margin-bottom:16px}
 .alert-green{background:var(--green-muted);color:#166534;border:1px solid #bbf7d0}
@@ -101,6 +112,7 @@ textarea:focus{border-color:var(--text-primary)}
 
 <!-- Main content -->
 <div id="state-main">
+  <!-- Info card -->
   <div class="card fade-up">
     <h1 id="main-headline"></h1>
     <p class="meta" id="main-meta"></p>
@@ -113,16 +125,26 @@ textarea:focus{border-color:var(--text-primary)}
       <span id="doc-link-name"></span>
       <span style="margin-left:auto;font-size:11px;color:var(--text-tertiary)">Download →</span>
     </a>
+    <!-- Current equity data table -->
+    <div id="current-data-section" style="display:none;margin-top:20px">
+      <div class="box-label">What <span id="current-data-user"></span> currently has on file</div>
+      <table class="current-table">
+        <tbody id="current-data-tbody"></tbody>
+      </table>
+    </div>
   </div>
 
+  <!-- Option A: confirm with editable form -->
   <div class="card fade-up" style="animation-delay:0.05s">
     <div class="section-label">Option A</div>
-    <h1 style="font-size:16px;margin-bottom:8px">Everything looks current</h1>
-    <p class="meta" style="margin-bottom:20px">Confirm that the equity information <span id="confirm-user"></span> has on file is up to date.</p>
+    <h1 style="font-size:16px;margin-bottom:8px">Confirm equity details</h1>
+    <p class="meta" style="margin-bottom:20px">Review and correct anything that's wrong, then confirm.</p>
+    <div id="confirm-form"></div>
     <div id="confirm-error" class="alert alert-red" style="display:none"></div>
-    <button class="btn btn-green btn-full" id="btn-confirm">Confirm — everything is current</button>
+    <button class="btn btn-green btn-full" id="btn-confirm">Confirm — this is correct</button>
   </div>
 
+  <!-- Option B: upload document -->
   <div class="card fade-up" style="animation-delay:0.1s">
     <div class="section-label">Option B</div>
     <h1 style="font-size:16px;margin-bottom:8px">Upload an updated document</h1>
@@ -132,14 +154,14 @@ textarea:focus{border-color:var(--text-primary)}
 
     <div class="upload-area" id="upload-area">
       <p class="upload-hint">Click to select a file</p>
-      <p class="upload-sub">PDF, XLSX, or XLS accepted</p>
+      <p class="upload-sub">PDF, XLSX, or XLS accepted.<br>Carta exports, Pulley reports, cap table PDFs, and Excel files all work.</p>
     </div>
     <input type="file" id="file-input" accept=".pdf,.xlsx,.xls" style="display:none">
     <p class="upload-file-name" id="file-name" style="display:none;margin-bottom:14px"></p>
 
-    <div class="field">
+    <div class="field-notes">
       <label class="field-label" for="notes-input">Notes (optional)</label>
-      <textarea id="notes-input" rows="3" placeholder="Any context about the document…"></textarea>
+      <textarea id="notes-input" class="notes-input" rows="3" placeholder="Any context about the document…"></textarea>
     </div>
 
     <button class="btn btn-primary btn-full" id="btn-upload" disabled>Send update</button>
@@ -163,7 +185,7 @@ const API = 'https://zgdwpolwnfqqewdwmoqh.supabase.co/functions/v1/equity-update
 
 function show(id) {
   ['state-loading','state-error','state-already','state-main','state-confirmed','state-updated'].forEach(s => {
-    document.getElementById(s).style.display = s === id ? (id === 'state-main' ? 'block' : 'block') : 'none'
+    document.getElementById(s).style.display = s === id ? 'block' : 'none'
   })
 }
 
@@ -175,6 +197,149 @@ function getToken() {
 let requestData = null
 const token = getToken()
 
+// ── Field definitions ──────────────────────────────────────────────────────
+const GRANT_FIELDS = [
+  { key: 'total_shares',      label: 'Total shares',        type: 'number', step: '1',      col: 'half' },
+  { key: 'vested_shares',     label: 'Vested shares',       type: 'number', step: '1',      col: 'half' },
+  { key: 'strike_price_usd',  label: 'Strike price ($/share)', type: 'number', step: '0.0001', col: 'half' },
+  { key: 'current_fmv_usd',   label: 'Current FMV ($/share)',  type: 'number', step: '0.0001', col: 'half' },
+  { key: 'grant_date',        label: 'Grant date',          type: 'date',                   col: 'half' },
+  { key: 'cliff_date',        label: 'Cliff date',          type: 'date',                   col: 'half' },
+  { key: 'vesting_end_date',  label: 'Vesting end date',    type: 'date',                   col: 'half' },
+  { key: 'expiration_date',   label: 'Expiration date',     type: 'date',                   col: 'half' },
+  { key: 'notes',             label: 'Notes',               type: 'textarea',               col: 'full' },
+]
+
+const INVEST_FIELDS = [
+  { key: 'amount_invested_usd', label: 'Amount invested ($)', type: 'number', step: '0.01', col: 'half' },
+  { key: 'current_value_usd',   label: 'Current value ($)',   type: 'number', step: '0.01', col: 'half' },
+  { key: 'invested_date',       label: 'Invested date',       type: 'date',                 col: 'half' },
+  { key: 'stage',               label: 'Stage',               type: 'text',                 col: 'half' },
+  { key: 'notes',               label: 'Notes',               type: 'textarea',             col: 'full' },
+]
+
+const LABEL_MAP = {
+  type: 'Type', investment_type: 'Type',
+  total_shares: 'Total shares', vested_shares: 'Vested shares',
+  strike_price_usd: 'Strike price', current_fmv_usd: 'Current FMV',
+  amount_invested_usd: 'Amount invested', current_value_usd: 'Current value',
+  grant_date: 'Grant date', cliff_date: 'Cliff date',
+  vesting_end_date: 'Vesting end date', expiration_date: 'Expiration date',
+  invested_date: 'Invested date', stage: 'Stage', notes: 'Notes',
+}
+
+function fmt(key, val) {
+  if (val == null) return '—'
+  if (['strike_price_usd', 'current_fmv_usd'].includes(key)) {
+    return '$' + parseFloat(val).toFixed(4) + '/share'
+  }
+  if (['amount_invested_usd', 'current_value_usd'].includes(key)) {
+    return '$' + parseFloat(val).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})
+  }
+  if (['total_shares', 'vested_shares'].includes(key)) {
+    return parseInt(val).toLocaleString('en-US')
+  }
+  return String(val)
+}
+
+// ── Render current data table ─────────────────────────────────────────────
+function renderCurrentData(d) {
+  if (!d.current_equity) return
+  const rows = Object.entries(d.current_equity)
+    .filter(([, v]) => v != null && v !== '' && v !== 0 || ['total_shares','vested_shares','amount_invested_usd'].includes(arguments[0]))
+    .filter(([, v]) => v != null && v !== '')
+    .map(([k, v]) => `<tr>
+      <td>${LABEL_MAP[k] || k}</td>
+      <td>${fmt(k, v)}</td>
+    </tr>`).join('')
+  if (!rows) return
+  document.getElementById('current-data-tbody').innerHTML = rows
+  document.getElementById('current-data-user').textContent = d.user_first_name
+  document.getElementById('current-data-section').style.display = 'block'
+}
+
+// ── Build confirm form ─────────────────────────────────────────────────────
+function buildConfirmForm(d) {
+  const fields = d.entity_type === 'grant' ? GRANT_FIELDS : INVEST_FIELDS
+  const eq = d.current_equity || {}
+  const formEl = document.getElementById('confirm-form')
+
+  // Group into rows of 2 (half) or 1 (full)
+  let html = ''
+  let i = 0
+  while (i < fields.length) {
+    const f = fields[i]
+    if (f.col === 'full') {
+      const val = eq[f.key] != null ? eq[f.key] : ''
+      html += `<div class="field"><label class="field-label">${f.label}</label>
+        <textarea id="cf-${f.key}" class="cf-input" rows="2" placeholder="Optional">${val}</textarea></div>`
+      i++
+    } else {
+      // pair half-width fields
+      const f2 = fields[i + 1] && fields[i + 1].col === 'half' ? fields[i + 1] : null
+      const v1 = eq[f.key] != null ? eq[f.key] : ''
+      const v2 = f2 ? (eq[f2.key] != null ? eq[f2.key] : '') : ''
+      html += `<div class="cf-grid">`
+      html += renderInput(f, v1)
+      if (f2) html += renderInput(f2, v2)
+      html += `</div>`
+      i += f2 ? 2 : 1
+    }
+  }
+  formEl.innerHTML = html
+}
+
+function renderInput(f, val) {
+  const stepAttr = f.step ? ` step="${f.step}"` : ''
+  const minAttr = f.type === 'number' ? ' min="0"' : ''
+  return `<div class="field"><label class="field-label">${f.label}</label>
+    <input type="${f.type}" id="cf-${f.key}" class="cf-input" value="${val}" placeholder="Optional"${stepAttr}${minAttr}></div>`
+}
+
+// ── Collect confirmed form data ────────────────────────────────────────────
+function collectConfirmData(entityType) {
+  const fields = entityType === 'grant' ? GRANT_FIELDS : INVEST_FIELDS
+  const data = {}
+  fields.forEach(f => {
+    const el = document.getElementById(`cf-${f.key}`)
+    if (!el) return
+    const raw = el.value.trim()
+    if (!raw) return
+    if (f.type === 'number') {
+      const n = parseFloat(raw)
+      if (!isNaN(n)) data[f.key] = n
+    } else {
+      data[f.key] = raw
+    }
+  })
+  return data
+}
+
+// ── Main render ────────────────────────────────────────────────────────────
+function render(d) {
+  const greeting = d.ceo_name ? `Hi ${d.ceo_name.split(' ')[0]},` : 'Hi,'
+  document.getElementById('main-headline').textContent = `${greeting} ${d.user_first_name} is requesting an equity update for ${d.company_name}`
+  document.getElementById('main-meta').textContent = 'This will only take a moment. Please choose one of the options below.'
+
+  if (d.message) {
+    document.getElementById('message-text').textContent = d.message
+    document.getElementById('message-block').style.display = 'block'
+  }
+
+  if (d.attached_doc_url && d.attached_doc_name) {
+    const link = document.getElementById('doc-link')
+    link.href = d.attached_doc_url
+    document.getElementById('doc-link-name').textContent = d.attached_doc_name
+    link.style.display = 'flex'
+  }
+
+  document.getElementById('upload-user').textContent = d.user_first_name
+
+  renderCurrentData(d)
+  buildConfirmForm(d)
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────
 async function init() {
   show('state-loading')
   if (!token) { show('state-error'); return }
@@ -185,7 +350,6 @@ async function init() {
 
     if (!res.ok) {
       if (res.status === 409) {
-        document.getElementById('already-msg').textContent = 'This request has already been responded to. Thank you!'
         show('state-already')
         return
       }
@@ -202,27 +366,6 @@ async function init() {
   }
 }
 
-function render(d) {
-  const greeting = d.ceo_name ? `Hi ${d.ceo_name.split(' ')[0]},` : 'Hi,'
-  document.getElementById('main-headline').textContent = `${greeting} ${d.user_first_name} is requesting an equity update for ${d.company_name}`
-  document.getElementById('main-meta').textContent = `This will only take a moment. Please choose one of the options below.`
-
-  if (d.message) {
-    document.getElementById('message-text').textContent = d.message
-    document.getElementById('message-block').style.display = 'block'
-  }
-
-  if (d.attached_doc_url && d.attached_doc_name) {
-    const link = document.getElementById('doc-link')
-    link.href = d.attached_doc_url
-    document.getElementById('doc-link-name').textContent = d.attached_doc_name
-    link.style.display = 'flex'
-  }
-
-  document.getElementById('confirm-user').textContent = d.user_first_name
-  document.getElementById('upload-user').textContent = d.user_first_name
-}
-
 // ── Confirm action ─────────────────────────────────────────────────────────
 document.getElementById('btn-confirm').addEventListener('click', async () => {
   const btn = document.getElementById('btn-confirm')
@@ -231,10 +374,11 @@ document.getElementById('btn-confirm').addEventListener('click', async () => {
   btn.innerHTML = '<span class="spinner"></span>Confirming…'
   errEl.style.display = 'none'
   try {
+    const confirmedData = collectConfirmData(requestData?.entity_type)
     const res = await fetch(API, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ token, action: 'confirmed' }),
+      body: JSON.stringify({ token, action: 'confirmed', confirmed_data: confirmedData }),
     })
     const data = await res.json()
     if (!res.ok) throw new Error(data.error || 'Something went wrong.')
@@ -244,7 +388,7 @@ document.getElementById('btn-confirm').addEventListener('click', async () => {
     errEl.textContent = e.message
     errEl.style.display = 'block'
     btn.disabled = false
-    btn.textContent = 'Confirm — everything is current'
+    btn.textContent = 'Confirm — this is correct'
   }
 })
 
