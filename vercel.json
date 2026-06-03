@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    { "source": "/equity-update/:token", "destination": "/equity-update.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
