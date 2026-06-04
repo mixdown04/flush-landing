@@ -152,6 +152,10 @@ textarea.cf-input{height:auto;padding:8px 10px;resize:vertical;min-height:52px}
 
     <div id="upload-error" class="alert alert-red" style="display:none"></div>
 
+    <p style="font-size:11px;color:var(--text-tertiary);margin-bottom:10px;display:flex;align-items:center;gap:5px">
+      🔒 Secure file upload — your document is encrypted and only accessible to <span id="secure-user" style="font-weight:500;color:var(--text-secondary)"></span>.
+    </p>
+
     <div class="upload-area" id="upload-area">
       <p class="upload-hint">Click to select a file</p>
       <p class="upload-sub">PDF, XLSX, or XLS accepted.<br>Carta exports, Pulley reports, cap table PDFs, and Excel files all work.</p>
@@ -334,6 +338,7 @@ function render(d) {
   }
 
   document.getElementById('upload-user').textContent = d.user_first_name
+  document.getElementById('secure-user').textContent = d.user_first_name
 
   renderCurrentData(d)
   buildConfirmForm(d)
