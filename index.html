@@ -60,17 +60,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--text-primary);outli
 .waitlist-btn{height:42px;padding:0 20px;border-radius:8px;border:none;background:var(--text-primary);color:#fff;font-family:var(--mono);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background 0.15s}
 .waitlist-btn:hover{background:#2a2a28}
 .waitlist-note{font-size:11px;color:var(--text-tertiary);text-align:left;letter-spacing:0.02em}
+.cta-inner .waitlist-note{text-align:center}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes panelFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
 /* SECTION SCROLLSPY NAV (Attio-style numbered rail) */
-.rail-nav{position:sticky;top:64px;z-index:40;display:flex;justify-content:center;gap:4px;padding:10px 40px;margin:36px 0 0;flex-wrap:wrap}
-.rail-item{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:20px;font-size:11px;color:var(--text-tertiary);text-decoration:none;border:1px solid transparent;transition:color 0.2s,border-color 0.2s,background 0.2s;letter-spacing:-0.01em}
+.rail-nav{position:sticky;top:66px;z-index:60;display:flex;justify-content:center;gap:2px;width:fit-content;margin:36px auto 0;padding:4px;background:rgba(250,250,249,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.rail-item{display:flex;align-items:center;gap:7px;padding:7px 14px;border-radius:18px;font-size:11px;color:var(--text-secondary);text-decoration:none;transition:color 0.2s,background 0.2s;letter-spacing:-0.01em;white-space:nowrap}
 .rail-num{font-size:9px;color:var(--text-tertiary);font-variant-numeric:tabular-nums}
-.rail-item.active{color:var(--text-primary);background:var(--surface);border-color:var(--border)}
-.rail-item.active .rail-num{color:var(--accent-dark,#3a7d00)}
-.rail-item:hover{color:var(--text-primary)}
+.rail-item.active{color:#fff;background:var(--text-primary)}
+.rail-item.active .rail-num{color:var(--accent)}
+.rail-item:not(.active):hover{color:var(--text-primary)}
 @media (max-width:900px){.rail-nav{display:none}}
 
 /* SCREENSHOT FRAME */
