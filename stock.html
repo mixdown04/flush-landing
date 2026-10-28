@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flush | Know what your stock options are worth</title>
+<meta name="description" content="Flush is the stock options tracker. See what your startup stock is worth, what it costs to buy, and what you would keep after taxes.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#F6F6F0}
+a{color:inherit;text-decoration:none}
+a:hover{opacity:.8}
+</style>
+</head>
+<body>
+<div style="width:100%;box-sizing:border-box;background:#F6F6F0;color:#111310;font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:17px;line-height:1.55">
+
+<!-- NAV -->
+<div style="max-width:1120px;margin:0 auto;padding:20px 24px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;font-size:24px;letter-spacing:-0.04em">flush<span style="font-size:11px;vertical-align:super;font-weight:400">™</span></div>
+<div style="display:flex;align-items:center;gap:8px 28px;flex-wrap:wrap;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px">
+<a href="#how" style="color:#111310">How it works</a>
+<a href="#pricing" style="color:#111310">Pricing</a>
+<a href="https://app.flush.cash" style="color:#F6F6F0;background:#111310;padding:12px 20px;border-radius:10px">Start free →</a>
+</div>
+</div>
+
+<!-- HERO -->
+<div style="max-width:1160px;margin:0 auto;padding:clamp(12px,3vw,36px) 24px 0;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;gap:32px 40px">
+<div style="flex:1 1 300px;min-width:0;max-width:480px;display:flex;flex-direction:column;align-items:flex-start;gap:20px">
+<div style="display:inline-flex;align-items:center;gap:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;padding:6px 12px;border:1px solid #DADBD0;border-radius:999px;background:#FFFFFF"><span style="width:8px;height:8px;border-radius:50%;background:#C8F24A;border:1px solid #111310"></span>The stock options tracker</div>
+<h1 style="margin:0;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500;font-size:clamp(34px,4.2vw,54px);line-height:1.05;letter-spacing:-0.045em;text-wrap:balance">Know what your stock options are worth.</h1>
+<p style="margin:0;font-size:clamp(17px,1.6vw,19px);color:#5A5E54;text-wrap:pretty">See what your startup stock is worth, what it costs to buy, and what you would keep after taxes.</p>
+<div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px">
+<a href="https://app.flush.cash" style="background:#C8F24A;color:#111310;border:1px solid #111310;padding:14px 28px;border-radius:10px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:500">Start free today →</a>
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">Free during beta · No credit card required</div>
+</div>
+</div>
+<div style="flex:1.4 1 400px;min-width:0">
+<div style="background:#FFFFFF;border:1px solid #DADBD0;border-radius:16px;box-shadow:0 24px 60px rgba(17,19,16,0.10);overflow:hidden;text-align:left">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid #E6E7DD;background:#FBFBF7;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54"><span>flush.cash/stock</span><span>Sample data</span></div>
+<div style="padding:clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:16px"><div style="display:flex;gap:6px;flex-wrap:wrap"><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:#111310;color:#F6F6F0">Portfolio</span><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">Options &amp; Grants</span><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">Exit simulator</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px 32px;align-items:flex-end;justify-content:space-between">
+<div><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#5A5E54;text-transform:uppercase;letter-spacing:0.08em">Estimated worth today</div><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:clamp(30px,5vw,44px);letter-spacing:-0.04em;font-weight:500">$375,000</div></div>
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">3 companies · 1 deadline coming</div></div>
+<div style="border:1px solid #E6E7DD;border-radius:12px;overflow:auto"><div style="min-width:500px">
+<div style="display:flex;gap:12px;align-items:center;padding:10px 16px;border-top:0;background:#FBFBF7;font-size:12px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;color:#5A5E54;text-transform:uppercase;letter-spacing:0.06em"><div style="flex:1.4 1 0;min-width:0;">Company</div><div style="flex:1.2 1 0;min-width:0;">What you own</div><div style="flex:1 1 0;min-width:0;">How many</div><div style="flex:1 1 0;min-width:0;">Worth today</div><div style="flex:1 1 0;min-width:0;">Status</div></div>
+<div style="display:flex;gap:12px;align-items:center;padding:14px 16px;border-top:1px solid #E6E7DD;background:#FFFFFF;font-size:15px;"><div style="flex:1.4 1 0;min-width:0;"><b style="font-weight:600">Nvidia</b></div><div style="flex:1.2 1 0;min-width:0;color:#5A5E54">Company shares</div><div style="flex:1 1 0;min-width:0;">1,200 shares</div><div style="flex:1 1 0;min-width:0;"><b style="font-weight:600">$216,000</b></div><div style="flex:1 1 0;min-width:0;"><span style="display:inline-block;padding:3px 10px;border-radius:999px;background:#F1F7DC;color:#3E5A0A;border:1px solid #D2E39A;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;white-space:nowrap">Active</span></div></div>
+<div style="display:flex;gap:12px;align-items:center;padding:14px 16px;border-top:1px solid #E6E7DD;background:#FFF8F5;font-size:15px;"><div style="flex:1.4 1 0;min-width:0;"><b style="font-weight:600">Tesla</b></div><div style="flex:1.2 1 0;min-width:0;color:#5A5E54">Stock options</div><div style="flex:1 1 0;min-width:0;">200 options</div><div style="flex:1 1 0;min-width:0;"><b style="font-weight:600">$84,000</b></div><div style="flex:1 1 0;min-width:0;"><span style="display:inline-block;padding:3px 10px;border-radius:999px;background:#FFF1EC;color:#9A2B12;border:1px solid #F0B9A6;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;white-space:nowrap">Expires in 34 days</span></div></div>
+<div style="display:flex;gap:12px;align-items:center;padding:14px 16px;border-top:1px solid #E6E7DD;background:#FFFFFF;font-size:15px;"><div style="flex:1.4 1 0;min-width:0;"><b style="font-weight:600">Wispr Flow</b></div><div style="flex:1.2 1 0;min-width:0;color:#5A5E54">Money you invested</div><div style="flex:1 1 0;min-width:0;">$25,000 invested</div><div style="flex:1 1 0;min-width:0;"><b style="font-weight:600">$75,000</b></div><div style="flex:1 1 0;min-width:0;"><span style="display:inline-block;padding:3px 10px;border-radius:999px;background:#F1F7DC;color:#3E5A0A;border:1px solid #D2E39A;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;white-space:nowrap">Active</span></div></div>
+</div></div></div></div>
+</div>
+</div>
+
+<!-- WHO IT'S FOR -->
+<div style="max-width:960px;margin:0 auto;padding:clamp(40px,6vw,64px) 24px 0;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:16px">
+<div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:10px;padding:24px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:16px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:20px;font-weight:500;letter-spacing:-0.03em;line-height:1.2">You work at a company that gave you stock</div><div style="font-size:17px;color:#5A5E54">Maybe it is stock options from a startup, or shares from a big company. Flush shows how many you have, what they are worth, and when you could lose them.</div></div><div style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:10px;padding:24px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:16px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:20px;font-weight:500;letter-spacing:-0.03em;line-height:1.2">You invest in startups</div><div style="font-size:17px;color:#5A5E54">You wrote a check to a founder. Flush keeps every investment in one place, shows what your stake could be worth, and what you would get when the company sells.</div></div>
+</div>
+
+<!-- PLAIN WORDS -->
+<div style="max-width:960px;margin:0 auto;padding:clamp(36px,5vw,48px) 24px 0;box-sizing:border-box;display:flex;flex-direction:column;gap:16px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5E54;font-weight:600">Three words, in plain English</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px 32px">
+<div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:600"><span style="background:#C8F24A;padding:2px 8px;border-radius:5px">Stock option</span></div><div style="font-size:16px;color:#5A5E54">The right to buy company shares at a price set ahead of time.</div></div><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:600"><span style="background:#C8F24A;padding:2px 8px;border-radius:5px">Expiration date</span></div><div style="font-size:16px;color:#5A5E54">The last day you can use that right. After it, the stock is gone.</div></div><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:600"><span style="background:#C8F24A;padding:2px 8px;border-radius:5px">Sale (or exit)</span></div><div style="font-size:16px;color:#5A5E54">The day the company is sold or goes public and you can finally cash out.</div></div>
+</div>
+</div>
+
+<!-- STEPS -->
+<div id="how"></div>
+<div style="max-width:960px;margin:0 auto;padding:clamp(48px,7vw,80px) 24px 0;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:10px;max-width:640px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;font-weight:600;background:#C8F24A;align-self:flex-start;padding:4px 10px;border-radius:6px">Step 1</div>
+<h2 style="margin:0;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-0.04em;text-wrap:balance">Add what you own.</h2>
+<p style="margin:0;font-size:19px;color:#5A5E54;text-wrap:pretty">Type in the company, how many shares you have, and what you paid.</p></div>
+<div style="background:#FFFFFF;border:1px solid #DADBD0;border-radius:16px;box-shadow:0 24px 60px rgba(17,19,16,0.10);overflow:hidden;text-align:left">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid #E6E7DD;background:#FBFBF7;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54"><span>flush.cash/stock/add</span><span>Sample data</span></div>
+<div style="padding:clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:16px">
+<div style="font-size:19px;font-weight:600">Add a company</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px"><div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#5A5E54">Company</div><div style="padding:12px 14px;border:1px solid #DADBD0;border-radius:10px;background:#FBFBF7;font-size:16px;">Wispr Flow</div></div><div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#5A5E54">What do you have?</div><div style="padding:12px 14px;border:1px solid #DADBD0;border-radius:10px;background:#FBFBF7;font-size:16px;">Money I invested  ▾</div></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:16px"><div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#5A5E54">How much did you put in?</div><div style="padding:12px 14px;border:1px solid #DADBD0;border-radius:10px;background:#FBFBF7;font-size:16px;">$25,000</div></div><div style="flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:6px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#5A5E54">How much of the company do you own?</div><div style="padding:12px 14px;border:1px solid #DADBD0;border-radius:10px;background:#FBFBF7;font-size:16px;">0.25%</div></div></div>
+<div><span style="display:inline-block;background:#C8F24A;border:1px solid #111310;padding:12px 22px;border-radius:10px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;font-weight:500">Add to my stock →</span></div></div></div>
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5E54;font-weight:600;padding-top:4px">How this works</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px"><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">1</div><div style="font-size:18px;font-weight:600;line-height:1.3">Add a company</div><div style="font-size:16px;color:#5A5E54">Type its name, how many shares you have, and what you paid. It is all on your offer letter or investment paperwork.</div></div><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">2</div><div style="font-size:18px;font-weight:600;line-height:1.3">Say what kind it is</div><div style="font-size:16px;color:#5A5E54">Stock options, shares, or money you invested. Flush handles each one the right way.</div></div><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">3</div><div style="font-size:18px;font-weight:600;line-height:1.3">See it all in one place</div><div style="font-size:16px;color:#5A5E54">Every company lands on one screen, with a total, so you stop digging through old emails.</div></div></div></div>
+<div style="max-width:960px;margin:0 auto;padding:clamp(48px,7vw,80px) 24px 0;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:10px;max-width:640px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;font-weight:600;background:#C8F24A;align-self:flex-start;padding:4px 10px;border-radius:6px">Step 2</div>
+<h2 style="margin:0;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-0.04em;text-wrap:balance">See what you would make.</h2>
+<p style="margin:0;font-size:19px;color:#5A5E54;text-wrap:pretty">Pick a price the company could sell for. Flush shows what you would take home.</p></div>
+<div style="background:#FFFFFF;border:1px solid #DADBD0;border-radius:16px;box-shadow:0 24px 60px rgba(17,19,16,0.10);overflow:hidden;text-align:left">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid #E6E7DD;background:#FBFBF7;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54"><span>flush.cash/stock/exit</span><span>Sample data</span></div>
+<div style="padding:clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:16px"><div style="display:flex;gap:6px;flex-wrap:wrap"><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">Portfolio</span><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">Options &amp; Grants</span><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:#111310;color:#F6F6F0">Exit simulator</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px"><div style="font-size:19px;font-weight:600">If Wispr Flow gets sold, what do you take home?</div><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">You invested $25,000 · You own 0.25%</div></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;font-size:15px"><span><b style="font-weight:600">Low</b> <span style="color:#5A5E54">· company sells for $50M</span></span><span style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600">$100,000</span></div>
+<div style="background:#F2F2EC;border-radius:8px;height:30px"><div style="width:8%;height:100%;background:#E6E7DD;border:1px solid #111310;border-radius:8px;box-sizing:border-box"></div></div></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;font-size:15px"><span><b style="font-weight:600">Middle</b> <span style="color:#5A5E54">· company sells for $200M</span></span><span style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600">$400,000</span></div>
+<div style="background:#F2F2EC;border-radius:8px;height:30px"><div style="width:33%;height:100%;background:#E6E7DD;border:1px solid #111310;border-radius:8px;box-sizing:border-box"></div></div></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;font-size:15px"><span><b style="font-weight:600">High</b> <span style="color:#5A5E54">· company sells for $600M</span></span><span style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600">$1,200,000</span></div>
+<div style="background:#F2F2EC;border-radius:8px;height:30px"><div style="width:100%;height:100%;background:#C8F24A;border:1px solid #111310;border-radius:8px;box-sizing:border-box"></div></div></div>
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#5A5E54">Sample numbers. Estimates after taxes, not tax advice.</div></div></div>
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5E54;font-weight:600;padding-top:4px">How this works</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px"><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">1</div><div style="font-size:18px;font-weight:600;line-height:1.3">Start with your share</div><div style="font-size:16px;color:#5A5E54">Flush knows how much of the company you own, based on what you entered in step 1.</div></div><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">2</div><div style="font-size:18px;font-weight:600;line-height:1.3">Try three sale prices</div><div style="font-size:16px;color:#5A5E54">Low, middle, and high. You see the whole range, not one lucky guess.</div></div><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">3</div><div style="font-size:18px;font-weight:600;line-height:1.3">Taxes are included</div><div style="font-size:16px;color:#5A5E54">The number shown is an estimate of what you would keep, not just the sale price.</div></div></div></div>
+<div style="max-width:960px;margin:0 auto;padding:clamp(48px,7vw,80px) 24px 0;box-sizing:border-box;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:10px;max-width:640px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;font-weight:600;background:#C8F24A;align-self:flex-start;padding:4px 10px;border-radius:6px">Step 3</div>
+<h2 style="margin:0;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-0.04em;text-wrap:balance">Never miss a deadline.</h2>
+<p style="margin:0;font-size:19px;color:#5A5E54;text-wrap:pretty">Stock options can expire. Miss the date and you lose them. Flush puts the date up front and warns you early.</p></div>
+<div style="background:#FFFFFF;border:1px solid #DADBD0;border-radius:16px;box-shadow:0 24px 60px rgba(17,19,16,0.10);overflow:hidden;text-align:left">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid #E6E7DD;background:#FBFBF7;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54"><span>flush.cash/stock/options</span><span>Sample data</span></div>
+<div style="padding:clamp(14px,3vw,24px);display:flex;flex-direction:column;gap:16px"><div style="display:flex;gap:6px;flex-wrap:wrap"><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">Portfolio</span><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:#111310;color:#F6F6F0">Options &amp; Grants</span><span style="padding:8px 14px;border-radius:8px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">Exit simulator</span></div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;background:#FFF1EC;border:1px solid #F0B9A6;border-radius:12px">
+<div style="flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:4px"><div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#9A2B12;font-weight:600">Deadline coming</div>
+<div style="font-size:19px;font-weight:600;line-height:1.3">Your Tesla stock options expire in 34 days</div>
+<div style="font-size:14px;color:#5A5E54">200 options × $120 each = $24,000 total to buy them</div></div>
+<span style="background:#111310;color:#F6F6F0;padding:12px 20px;border-radius:10px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px">See your choices →</span></div>
+<div style="border:1px solid #E6E7DD;border-radius:12px;overflow:auto"><div style="min-width:680px">
+<div style="display:flex;gap:12px;align-items:center;padding:10px 16px;border-top:0;background:#FBFBF7;font-size:12px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;color:#5A5E54;text-transform:uppercase;letter-spacing:0.06em"><div style="flex:1.1 1 0;min-width:0;">Company</div><div style="flex:1 1 0;min-width:0;">Type</div><div style="flex:1 1 0;min-width:0;">How many</div><div style="flex:1 1 0;min-width:0;">Price to buy</div><div style="flex:1.2 1 0;min-width:0;">Expires</div><div style="flex:1 1 0;min-width:0;">Time left</div></div>
+<div style="display:flex;gap:12px;align-items:center;padding:14px 16px;border-top:1px solid #E6E7DD;background:#FFF8F5;font-size:15px;"><div style="flex:1.1 1 0;min-width:0;"><b style="font-weight:600">Tesla</b></div><div style="flex:1 1 0;min-width:0;">Stock options</div><div style="flex:1 1 0;min-width:0;">200</div><div style="flex:1 1 0;min-width:0;">$120 each</div><div style="flex:1.2 1 0;min-width:0;">Dec 1, 2026</div><div style="flex:1 1 0;min-width:0;"><span style="display:inline-block;padding:3px 10px;border-radius:999px;background:#FFF1EC;color:#9A2B12;border:1px solid #F0B9A6;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;white-space:nowrap">34 days</span></div></div>
+<div style="display:flex;gap:12px;align-items:center;padding:14px 16px;border-top:1px solid #E6E7DD;background:#FFFFFF;font-size:15px;"><div style="flex:1.1 1 0;min-width:0;"><b style="font-weight:600">Tesla</b></div><div style="flex:1 1 0;min-width:0;">Stock options</div><div style="flex:1 1 0;min-width:0;">100</div><div style="flex:1 1 0;min-width:0;">$95 each</div><div style="flex:1.2 1 0;min-width:0;">Jun 30, 2027</div><div style="flex:1 1 0;min-width:0;"><span style="display:inline-block;padding:3px 10px;border-radius:999px;background:#F2F2EC;color:#5A5E54;border:1px solid #DADBD0;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;white-space:nowrap">8 months</span></div></div>
+<div style="display:flex;gap:12px;align-items:center;padding:14px 16px;border-top:1px solid #E6E7DD;background:#FFFFFF;font-size:15px;"><div style="flex:1.1 1 0;min-width:0;"><b style="font-weight:600">Nvidia</b></div><div style="flex:1 1 0;min-width:0;">Stock options</div><div style="flex:1 1 0;min-width:0;">400</div><div style="flex:1 1 0;min-width:0;">$40 each</div><div style="flex:1.2 1 0;min-width:0;">Mar 15, 2031</div><div style="flex:1 1 0;min-width:0;"><span style="display:inline-block;padding:3px 10px;border-radius:999px;background:#F1F7DC;color:#3E5A0A;border:1px solid #D2E39A;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;white-space:nowrap">4 years</span></div></div>
+</div></div></div></div>
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#5A5E54;font-weight:600;padding-top:4px">How this works</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px"><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">1</div><div style="font-size:18px;font-weight:600;line-height:1.3">Enter the date once</div><div style="font-size:16px;color:#5A5E54">The expiration date is printed on your stock paperwork. Flush counts the days left for you.</div></div><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">2</div><div style="font-size:18px;font-weight:600;line-height:1.3">Get warned early</div><div style="font-size:16px;color:#5A5E54">Flush sends a reminder 90, 30, and 7 days before a deadline, so it never sneaks up on you.</div></div><div style="flex:1 1 240px;min-width:0;display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#FFFFFF;border:1px solid #DADBD0;border-radius:12px">
+<div style="font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">3</div><div style="font-size:18px;font-weight:600;line-height:1.3">See what it costs to keep</div><div style="font-size:16px;color:#5A5E54">Next to each date is the price to buy, so you know exactly what it takes to hold on to your stock.</div></div></div></div>
+
+<!-- CTA -->
+<div id="pricing" style="max-width:1120px;margin:clamp(56px,8vw,96px) auto 0;padding:0 24px;box-sizing:border-box">
+<div style="background:#111310;color:#F6F6F0;border-radius:20px;padding:clamp(36px,6vw,64px) clamp(20px,5vw,48px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px">
+<h2 style="margin:0;max-width:760px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500;font-size:clamp(28px,4.4vw,48px);line-height:1.08;letter-spacing:-0.04em;text-wrap:balance">Find out what your stock is worth.</h2>
+<p style="margin:0;max-width:520px;font-size:18px;color:#C9CBC0">Add your first company in about a minute. Free while Flush is in beta.</p>
+<a href="https://app.flush.cash" style="background:#C8F24A;color:#111310;padding:14px 28px;border-radius:10px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:15px;font-weight:500">Start free today →</a>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div style="max-width:1120px;margin:0 auto;padding:40px 24px 48px;box-sizing:border-box;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-family:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:#5A5E54">
+<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+<span style="font-weight:600;font-size:18px;letter-spacing:-0.04em;color:#111310">flush<span style="font-size:9px;vertical-align:super;font-weight:400">™</span></span>
+<a href="/privacy" style="color:#5A5E54">Privacy</a>
+<a href="/terms" style="color:#5A5E54">Terms</a>
+<a href="/security" style="color:#5A5E54">Security</a>
+</div>
+<div>© 2026 Halo, LLC · flush.cash · Sample companies are for illustration only. Flush is a trademark of Halo, LLC</div>
+</div>
+
+</div>
+</body>
+</html>
